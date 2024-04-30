@@ -1,0 +1,42 @@
+{% extends "Daystarapp/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block title %}
+  HOME
+{% endblock %}
+
+
+{% block content %}
+<br>
+<div class="container" style="min-height: 500px;">
+    <table style="width: 100%;">
+        <tr>
+            <th>SITTER NO.</th>
+            <th>NAME</th>
+            <th>DATE OF BIRTH</th>
+            <th>GENDER</th>
+            <th>LOCATION</th>
+            <th>NIN NUMBER</th>
+            <th>RECOMMENDER'S NAME</th>
+            <th>RELIGION</th>
+            <th>LEVEL OF EDUCATION</th>
+        </tr>
+        {% for sits in sitters %}
+        <tr>
+            <td>{{sits.siiterno}}</td>
+            <td>{{sits.sittername}}</td>
+            <td>{{sits.sitterbirth}}</td>
+            <td>{{sits.sittergender}}</td>
+            <td>{{sits.sitterloc}}</td>
+            <td>{{sits.siiterNIN}}</td>
+            <td>{{sits.sitterreco}}</td>
+            <td>{{sits.sitterreligion}}</td>
+            <td>{{sits.sittereduc}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

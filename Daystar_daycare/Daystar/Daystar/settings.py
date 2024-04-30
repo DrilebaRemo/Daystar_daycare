@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'Daystarapp',
     'crispy_forms',
     'crispy_bootstrap4',
+    'material_widgets',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -101,6 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+# settings.py
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 
 
 # Internationalization

@@ -1,5 +1,9 @@
 {% extends 'Daystarapp/base.html' %}
 {% load crispy_forms_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 {% load static %}
 
 {% block title%}HOME{% endblock %}
@@ -8,8 +12,8 @@
 <div class="container" style="min-height: 400px;">
     <form method="post">
         {% csrf_token %}
-        {{ Getsitterform | crispy }}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Pay</button>
     </form>
 </div>
 {% endblock %}

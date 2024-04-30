@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('Daystarapp.urls')),
+    path('Daystar/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
 ]

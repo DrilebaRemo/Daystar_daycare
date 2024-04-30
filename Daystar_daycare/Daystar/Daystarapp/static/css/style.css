@@ -68,7 +68,7 @@ header ul li a:hover{
     text-decoration: none;
 }
 
-.container .womanwork img{
+/*.container .womanwork img{
     padding: 10px;
     margin-top: 60px;
     border-radius: 50px;
@@ -79,7 +79,7 @@ header ul li a:hover{
     margin-top: 60px;
     border-radius: 50px;
     width: 300px;
-}
+}*/
 .container button{
     border: none;
     border-radius: 5px;
@@ -164,7 +164,7 @@ header ul li a:hover{
     padding: 2px;
     margin-bottom: 0%;
 }
-.container .regform input{
+.container  input{
     background-color: coral;
     color: aliceblue;
     border: none;
@@ -173,8 +173,24 @@ header ul li a:hover{
     width: 500px;
     margin-top: 20px;
 }
-.container.regform input:hover{
+.container input:hover{
     background-color: rgb(250, 96, 40);
+}
+table{
+    color: #f0f8ff;
+    text-align: center;
+}
+th{
+    padding: 25px;
+    background-color: blueviolet;
+    border: 1px solid white;
+}
+td{
+    border: 1px solid white;
+    background-color: rgb(252, 90, 31);
+}
+td:hover{
+    background-color: coral;
 }
 /*Media queries */
 @media only screen and (max-width: 770px) {
@@ -217,7 +233,7 @@ header ul li a:hover{
         right: 20px;
         top: 10px;
     }
-    .container .regform input{
+    .container  input{
         width: 100%;
     }
     .footer{

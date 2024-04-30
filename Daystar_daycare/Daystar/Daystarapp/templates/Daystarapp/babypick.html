@@ -7,12 +7,12 @@
 
 {% block title%}HOME{% endblock %}
 
-{% block content%}
+{% block content %}
 <div class="container" style="min-height: 400px;">
     <form method="post">
         {% csrf_token %}
-        {{ newbabyform.as_p }}
-        <button type="submit" class="btn btn-primary">Add</button>
+        {{ pickbabyform.as_p }}
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
     </form>
 </div>
 {% endblock %}

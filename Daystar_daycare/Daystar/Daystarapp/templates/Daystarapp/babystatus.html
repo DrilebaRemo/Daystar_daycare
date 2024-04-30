@@ -1,0 +1,36 @@
+{% extends 'Daystarapp/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title%}HOME{% endblock %}
+
+{% block content%}
+
+<div class="container" style="min-height: 500px;">
+    <table style="width: 100%;">
+        <tr>
+            <th>BABY NO.</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>GENDER</th>
+            <th>LOCATION</th>
+            <th>PARENT</th>
+            <th>PAY </th>
+        </tr>
+        {% for kids in babies %}
+        <tr>
+            <td>{{kids.babyno}}</td>
+            <td>{{kids.babyname}}</td>
+            <td>{{kids.babyage}}</td>
+            <td>{{kids.babygender}}</td>
+            <td>{{kids.babyloc}}</td>
+            <td>{{kids.babyparent}}</td>
+            <td>{{kids.babypay}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,23 +1,27 @@
 {% extends 'Daystarapp/base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% block content %}
 <div class="container" style="min-height: 500px;">
     <div class="row">
-       <div class="col-md-6">
-        <div class="container" style="min-height: 400px;">
+       <div class="col-md-4" style="width: 100%;">
             <form method="post">
-                {% csrf_token %}
-                {{ Getadminloginform | crispy }}
-                <button type="submit" class="btn btn-primary">Login</button>
+              {% csrf_token %}
+              {% for message in messages %}
+              <p id="messages">{{ message }}</p>
+              {% endfor %}
+              {{ adminlogform.as_p }}
+              <button type="submit" class="btn btn-primary">Login</button>
             </form>
-        </div>
        </div>
-       <div class="col-md-4">
+       <div class="col-md-6">
          <div class="womanwork">
-           <img src="{% static 'img/woman-working-big-data-tech-600nw-2015415110.webp' %}">
+           <img src="{% static 'img/woman-working-big-data-tech-600nw-2015415110.webp' %}" style="border-radius: 20px; float: right; width: 50%;">
          </div>
-     </div>
+       </div>
     </div>
  </div>
 {% endblock %}
