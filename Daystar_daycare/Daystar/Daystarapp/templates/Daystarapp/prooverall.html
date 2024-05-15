@@ -1,0 +1,34 @@
+
+{% extends "Daystarapp/base.html" %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title %}
+  HOME
+{% endblock %} 
+
+
+{% block content %}
+<br>
+<div class="container" style="min-height: 500px;">
+  <div style="overflow-x: auto;">
+    <table style="width: 100%;">
+        <tr>
+          <th>PROCUREMENT ITEM</th>
+          <th>QUANTITY</th>  
+          <th>EDIT</th>
+          <th>DELETE</th>
+        </tr>
+        {% for sits in prototal %}
+        <tr>
+            <td>{{sits.pitems}}</td>
+            <td>{{sits.amount}}</td>
+            <td><a href="/editproview/{{sits.id}}"><button type="submit">EDIT</button></a></td>
+            <td><a href="/deleteproview/{{sits.id}}"><button type="submit">DELETE</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

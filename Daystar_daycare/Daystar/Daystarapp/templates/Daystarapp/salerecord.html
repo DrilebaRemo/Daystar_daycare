@@ -1,0 +1,61 @@
+{% extends 'Daystarapp/base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% load static %}
+
+{% block title%}HOME{% endblock %}
+
+{% block content %}
+<br>
+<div class="container" style="min-height: 400px;">
+ {% for sits in sale %}
+  <div class="receipt">
+    <h3>RECEIPT FOR DOLLS</h3>
+    <ul class="list-receipt">
+      <li>Toy: {{sits.item}}</li>
+      <li>Qty: {{sits.quantity}}</li>
+      <li>Sold to: {{sits.sell_to}}</li>
+      <li>Price:UGX {{sits.price}}</li>
+      <li>Date/Time: {{sits.datesale}}</li>
+    </ul>
+  </div>  
+  <br>
+ {% endfor %}
+</div>
+{% endblock %}
+ 
+
+
+
+    
+    <div class="receipt">
+      <h1>RECEIPT FOR DOLLS</h1>
+      <ul class="list-receipt">
+        <li>Toy: {{sits.item}}</li>
+        <li>Qty: {{sits.quantity}}</li>
+        <li>Sold to: {{sits.sell_to}}</li>
+        <li>Price:UGX {{sits.price}}</li>
+        <li>Date/Time: {{sits.datesale}}</li>
+      </ul>
+    </div>  
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem; color: white; background-color: rgb(1, 117, 98);">
+          <img src="{% static 'img/child toy.jpg' %}" class="card-img-top" alt="..." >
+          <div class="card-body" style="color: white; background-color: rgb(1, 117, 98);">
+            <h5 class="card-title">Receipt for dolls</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Toy: {{sits.item}}</li>
+            <li class="list-group-item">Qty: {{sits.quantity}}</li>
+            <li class="list-group-item">Sold to: {{sits.sell_to}}</li>
+            <li class="list-group-item">Price:UGX {{sits.price}}</li>
+            <a href="/deletesaleview/{{sits.id}}"><button type="submit">DELETE</button></a>
+          </ul>
+        </div>  
+      </div>
+     </div> 

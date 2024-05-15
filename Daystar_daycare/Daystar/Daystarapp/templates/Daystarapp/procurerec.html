@@ -1,0 +1,31 @@
+{% extends 'Daystarapp/base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% load static %}
+
+{% block title%}HOME{% endblock %}
+
+{% block content %}
+<br>
+<div class="container" style="min-height: 400px;">
+  <div style="overflow-x: auto;">
+    <table>
+          <tr>
+            <th>ITEM</th>
+            <th>BABY</th>
+            <th>QUANTITY</th>
+          </tr>
+          {% for kids in procure %}
+          <tr>
+            <td>{{kids.procurement_item}}</td>
+            <td>{{kids.baby_being_given_to}}</td>
+            <td>{{kids.procurequantity}}</td>
+          </tr>
+          {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

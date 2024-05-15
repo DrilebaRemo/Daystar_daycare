@@ -5,38 +5,44 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 {% block title %}
-  HOME
+SITTER RECORDS
 {% endblock %}
 
 
 {% block content %}
 <br>
 <div class="container" style="min-height: 500px;">
+  <div style="overflow-x: auto;">
     <table style="width: 100%;">
-        <tr>
+      <tr>
             <th>SITTER NO.</th>
             <th>NAME</th>
             <th>DATE OF BIRTH</th>
             <th>GENDER</th>
             <th>LOCATION</th>
             <th>NIN NUMBER</th>
-            <th>RECOMMENDER'S NAME</th>
+            <th>REFERENCE NAME</th>
             <th>RELIGION</th>
             <th>LEVEL OF EDUCATION</th>
-        </tr>
+            <th>EDIT</th>
+            <th>DELETE</th>
+      </tr>
         {% for sits in sitters %}
-        <tr>
-            <td>{{sits.siiterno}}</td>
+      <tr>
+            <td>{{sits.sitterno}}</td>
             <td>{{sits.sittername}}</td>
             <td>{{sits.sitterbirth}}</td>
-            <td>{{sits.sittergender}}</td>
+            <td>{{sits.sitter_gender}}</td>
             <td>{{sits.sitterloc}}</td>
-            <td>{{sits.siiterNIN}}</td>
+            <td>{{sits.sitterNIN}}</td>
             <td>{{sits.sitterreco}}</td>
             <td>{{sits.sitterreligion}}</td>
             <td>{{sits.sittereduc}}</td>
-        </tr>
+            <td><a href="/editsitterview/{{sits.id}}"><button type="submit">EDIT</button></a></td>
+            <td><a href="/deletesitterview/{{sits.id}}"><button type="submit">DELETE</button></a></td>
+      </tr>
         {% endfor %}
     </table>
+  </div>
 </div>
 {% endblock %}

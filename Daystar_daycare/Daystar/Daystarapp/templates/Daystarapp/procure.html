@@ -1,0 +1,18 @@
+{% extends 'Daystarapp/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block title%}ABOUT{% endblock %}
+
+{% block content%}
+<div class="container" style="min-height: 500px;">
+    <form method="post">
+        {% csrf_token %}
+        {{ proform.as_p }}
+        <button type="submit" class="btn btn-primary">ADD</button>
+    </form>
+</div>
+{% endblock %}

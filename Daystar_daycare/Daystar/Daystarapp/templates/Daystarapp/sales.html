@@ -3,7 +3,6 @@
 {% load bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
-
 {% load static %}
 
 {% block title%}HOME{% endblock %}
@@ -12,8 +11,8 @@
 <div class="container" style="min-height: 400px;">
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Pay</button>
+        {{ sellform.as_p }}
+        <button type="submit" class="btn btn-primary">SELL</button>
     </form>
 </div>
 {% endblock %}

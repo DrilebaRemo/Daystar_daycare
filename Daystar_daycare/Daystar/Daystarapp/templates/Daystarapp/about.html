@@ -5,12 +5,40 @@
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
-{% block title%}HOME{% endblock %}
+{% block title%}ABOUT{% endblock %}
 
 {% block content%}
 <div class="container" style="min-height: 500px;">
     <div class="row">
-        <div class="about"></div>
+        <div class="about">
+            <p>
+                Many Daycare centers struggle with data keeping and access because of various reasons.
+            </p>
+            <p>
+                Us as Shrem designs have decided to associate with Daystar Daycare Center to help ease this problem. Using this, you the administrator can easily access student and sitter records, inventory, sales among others and also altercate them to the desire of you and the parents.
+            </p>
+            <p>
+                We urge you to give feedback to enbale us improve this platform to suit all your needs.
+                Wish you the best and have a prosperous time.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <p>SHREM DESIGNS</p>
+            <img src="{% static 'img/Brimston (1).jpg' %}" style="height: 250px auto; max-width: 70%; display: block; margin: 0 auto;">
+        </div>
+        <br>
+        <div class="col-md-4">
+            <p>DAYSTAR DAYCARE CENTER</p>
+            <img src="{% static 'img/day star logo.jpg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;">
+        </div>
+        <br>
+        <div class="col-md-4">
+            <p>REFACTORY</p>
+            <img src="{% static 'img/refactory.jpeg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;"> 
+        </div>
+        <br>
     </div>
 </div>
 {% endblock %}

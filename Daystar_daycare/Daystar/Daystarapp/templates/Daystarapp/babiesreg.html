@@ -9,7 +9,7 @@
 
 {% block content%}
 <div class="container" style="min-height: 400px;">
-    <form method="post">
+    <form method="post" >
         {% csrf_token %}
         {{ newbabyform.as_p }}
         <button type="submit" class="btn btn-primary">Add</button>

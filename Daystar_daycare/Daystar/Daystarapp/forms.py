@@ -12,33 +12,46 @@ class AddbabyForm(forms.ModelForm):
         labels = {
             'babyname': False,
             'babyage': False,
-            'babygender': False,
+            #'babygender': False,
             'babyloc': False,
             'babyparent': False,
             'babyno': False,
-        }    
+            'dropper': False,
+            'timein': False,
+            #'periodstay': False,
+            'babypay': False,
+
+        }   
         widgets = {
-            'babyname': forms.TextInput(attrs={'placeholder': 'Your name...'}),
-            'babyage': forms.NumberInput(attrs={'placeholder': 'Your age...'}),
-            'babygender': forms.TextInput(attrs={'placeholder': 'Your gender...'}),
-            'babyloc': forms.TextInput(attrs={'placeholder': 'Your location...'}),
-            'babyparent': forms.TextInput(attrs={'placeholder': 'Your parent...'}),
-            'babyno': forms.NumberInput(attrs={'placeholder': 'Your phone number...'}),
+            'babyname': forms.TextInput(attrs={'placeholder': 'Baby name...', 'required':'required'}),
+            'babyage': forms.NumberInput(attrs={'placeholder': 'Baby age...', 'required':'required'}),
+            #'babygender': forms.TextInput(attrs={'placeholder': 'Your gender...', 'class': 'mykeys'}),
+            'babyloc': forms.TextInput(attrs={'placeholder': 'Baby location...', 'required':'required'}),
+            'babyparent': forms.TextInput(attrs={'placeholder': 'Parent name...', 'required':'required'}),
+            'babyno': forms.NumberInput(attrs={'placeholder': 'Baby number...', 'required':'required'}),
+            'dropper': forms.TextInput(attrs={'placeholder': 'Dropper name...', 'required':'required'}),
+            'timein': forms.DateTimeInput(attrs={'placeholder': 'Time in...', 'required':'required'}),
+            #'periodstay': forms.TextInput(attrs={'placeholder': 'Your period stay...', 'class': 'mykeys'}),
+            'babypay': forms.NumberInput(attrs={'placeholder': 'Pay...', 'required':'required'}),
         }
+
 
 class AdminRegForm(UserCreationForm):
     class Meta:
-        model = AdminReg
-        fields = '__all__'
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']
         labels = {
-            'adminemail': False,
-            'adminname': False,
-            'adminphone': False,
+            'username': False,
+            'email': False,
+            'password1': False,
+            'password2': False,
+        
         }
         widgets = {
-    'adminemail': forms.EmailInput(attrs={'placeholder': 'Your email...'}),
-    'adminname': forms.TextInput(attrs={'placeholder': 'Your name...'}),
-    'adminphone': forms.NumberInput(attrs={'placeholder': 'Your phone number...'}),
+            'username': forms.TextInput(attrs={'placeholder': 'Your name...', 'required':'required'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Your email...', 'required':'required'}),
+            'password1': forms.PasswordInput(attrs={'placeholder': 'Your password...', 'required':'required'}),
+            'password2': forms.PasswordInput(attrs={'placeholder': 'Your password...', 'required':'required'}),
         }
 
 
@@ -47,12 +60,12 @@ class AdminloginForm(ModelForm):
         model = Adminlogin
         fields = '__all__'
         labels = {
-            'adminpassw': False,
-            'adminnamee': False,
+            'username': False,
+            'password': False,
         }
         widgets = {
-        'adminpassw': forms.PasswordInput(attrs={'placeholder': 'Your password...'}),
-        'adminnamee': forms.TextInput(attrs={'placeholder': 'Your name...'}),
+        'username': forms.TextInput(attrs={'placeholder': 'Your name...', 'required':'required'}),
+        'password': forms.PasswordInput(attrs={'placeholder': 'Your password...', 'required':'required'}),
         }
 
 class AddsitterForm(ModelForm):
@@ -62,7 +75,7 @@ class AddsitterForm(ModelForm):
         labels = {
            'sittername': False,
            'sitterbirth': False,
-           'sittergender': False,
+          # 'sittergender': False,
            'sitterloc': False,
            'sitterNIN': False,
            'sitterno': False,
@@ -72,50 +85,33 @@ class AddsitterForm(ModelForm):
            'sittereduc': False,
         }
         widgets = {
-           'sittername': forms.TextInput(attrs={'placeholder': 'Your name...'}),
-           'sitterbirth': forms.DateInput(attrs={'placeholder': 'Your birth date...'}),
-           'sittergender': forms.TextInput(attrs={'placeholder': 'Your gender...'}),
-           'sitterloc': forms.TextInput(attrs={'placeholder': 'Your location...'}),
-           'sitterNIN': forms.TextInput(attrs={'placeholder': 'Your NIN...'}),
-           'sitterno': forms.NumberInput(attrs={'placeholder': 'Your sitter number...'}),
-           'sitterkin': forms.TextInput(attrs={'placeholder': 'Your kins name...'}),
-           'sitterreco': forms.TextInput(attrs={'placeholder': 'Your recommendation name...'}),
+           'sittername': forms.TextInput(attrs={'placeholder': 'Your name...', 'required':'required'}),
+           'sitterbirth': forms.DateInput(attrs={'placeholder': 'Your birth date...', 'required':'required'}),
+           #'sittergender': forms.TextInput(attrs={'placeholder': 'Your gender...', 'required':'required', 'class': 'mykeys'}),
+           'sitterloc': forms.TextInput(attrs={'placeholder': 'Your location...', 'required':'required'}),
+           'sitterNIN': forms.TextInput(attrs={'placeholder': 'Your NIN...', 'required':'required'}),
+           'sitterno': forms.NumberInput(attrs={'placeholder': 'Your sitter number...', 'required':'required'}),
+           'sitterkin': forms.TextInput(attrs={'placeholder': 'Your kins name...', 'required':'required'}),
+           'sitterreco': forms.TextInput(attrs={'placeholder': 'Your reference name...', 'required':'required'}),
            'sitterreligion': forms.TextInput(attrs={'placeholder': 'Your religion...'}),
-           'sittereduc': forms.TextInput(attrs={'placeholder': 'Your level of education...'}),
+           'sittereduc': forms.TextInput(attrs={'placeholder': 'Your level of education...', 'required':'required'}),
         }
 
-class PaysForm(ModelForm):
+class AssignbabyForm(ModelForm):
     class Meta:
-        model = Teachpayer
+        model = Assignbaby
         fields = '__all__'
         labels = {
-            'tname': False,
-            'taccnum': False,
-            'tcontact': False,
-            'tamount': False,
+           # 'babyassign': False,
+           # 'sitterhere': False,
+            'attendance': False,
+            'daypay': False,
         }
         widgets = {
-            'tname': forms.TextInput(attrs={'placeholder': 'form-control'}),
-            'taccnum': forms.NumberInput(attrs={'placeholder': 'form-control'}),
-            'tcontact': forms.NumberInput(attrs={'placeholder': 'form-control'}),
-            'tamount': forms.NumberInput(attrs={'placeholder': 'form-control'}),
-        }
-
-class DropbabyForm(ModelForm):
-    class Meta:
-        model = Timein
-        fields = '__all__'
-        labels = {
-           'picker': False,
-           'timein': False,
-           'babypay': False,
-           'periodstay': False,
-        }
-        widgets = {
-           'picker': forms.TextInput(attrs={'placeholder': 'Picker name...'}),
-           'timein': forms.DateTimeInput(attrs={'placeholder': 'Time...'}),
-           'periodstay': forms.TextInput(attrs={'placeholder': 'Period of stay...'}),
-           'babypay': forms.NumberInput(attrs={'placeholder': 'UGX...'}),
+           # 'babyassign': forms.TextInput(attrs={'placeholder': 'Assign baby', 'class': 'mykeys'}),
+           # 'sitterhere': forms.NumberInput(attrs={'placeholder': 'Name of sitter', 'class': 'mykeys'}),
+            'attendance': forms.TextInput(attrs={'placeholder': 'Sitters attendance', 'style': 'color: red;', 'required':'required'}),
+            'daypay': forms.NumberInput(attrs={'placeholder': 'Payment', 'required':'required'}),
         }
    
 class PickbabyForm(ModelForm):
@@ -123,12 +119,77 @@ class PickbabyForm(ModelForm):
         model = Timeout
         fields = '__all__'
         labels = {
-           'dropper': False,
+           #'babypick': False,
            'timeout': False,
+           'dropper': False,
            'comment': False,
         }
         widgets = {
-            'dropper': forms.TextInput(attrs={'placeholder': 'Dropper name...'}),
-            'timeout': forms.DateTimeInput(attrs={'placeholder': 'Time picked...'}),
-            'comment': forms.TextInput(attrs={'placeholder': 'Comment...'}),
+           #'babypick': forms.TextInput(attrs={'placeholder': 'Baby name...', 'class': 'mykeys'}),
+            'timeout': forms.DateTimeInput(attrs={'placeholder': 'Time picked...', 'required':'required'}),
+            'dropper': forms.TextInput(attrs={'placeholder': 'Picker name...', 'required':'required'}),
+            'comment': forms.Textarea(attrs={'placeholder': 'Comment...', 'class': 'textarea', 'required':'required'}),
+        }
+
+
+class DollRegForm(ModelForm):
+    class Meta:
+        model = Dollstall
+        fields = '__all__'
+        labels = {
+            'dolls': False,
+            'quantity': False,
+            'unitprice': False,
+        }
+        widgets = {
+            'dolls': forms.TextInput(attrs={'placeholder': 'dolls...', 'required':'required'}),
+            'quantity': forms.NumberInput(attrs={'placeholder': 'Quantity...', 'required':'required'}),
+            'unitprice': forms.NumberInput(attrs={'placeholder': 'Unit price UGX...', 'required':'required'}),
+        }
+
+
+class SalesForm(ModelForm):
+    class Meta:
+        model = Sales
+        fields = '__all__'
+        labels = {
+           #'item': False,
+           'quantity': False,
+           #'sell_to': False,
+           'price': False,
+           'datesale': False,
+        }
+        widgets = {
+          #'item': forms.TextInput(attrs={'placeholder': 'Doll/Toy...', 'class': 'mykeys'}),
+           'quantity': forms.NumberInput(attrs={'placeholder': 'Quantity...', 'required':'required'}),
+           #'sell_to': forms.TextInput(attrs={'placeholder': 'Sell to baby...', 'class': 'mykeys'}),
+           'price': forms.NumberInput(attrs={'placeholder': 'Price...', 'required':'required'}),
+           'datesale': forms.DateTimeInput(attrs={'placeholder': 'Date of sale...', 'required':'required'}),
+        }
+class ProcurementForm(ModelForm):
+    class Meta:
+        model = Procure
+        fields = '__all__'
+        labels = {
+            'pitems': False,
+            'amount': False,
+        }
+        widgets = {
+            'pitems': forms.TextInput(attrs={'placeholder': 'Item...', 'required':'required'}),
+            'amount': forms.NumberInput(attrs={'placeholder': 'Amount...', 'required':'required'}),
+        }
+
+class ProcurementgiveForm(ModelForm):
+    class Meta:
+        model = Procuregive
+        fields = '__all__'
+        labels = {
+            #'procureitem': False,
+            #'procurebaby': False,
+            'procurequantity': False
+        }
+        widgets = {
+            'procureitems': forms.TextInput(attrs={'placeholder': 'Item...', 'class': 'mykeys'}),
+            'procurequantity': forms.NumberInput(attrs={'placeholder': 'Amount...', 'required':'required'}),
+            'procurebaby': forms.TextInput(attrs={'placeholder': 'Baby name...', 'class': 'mykeys'}),
         }

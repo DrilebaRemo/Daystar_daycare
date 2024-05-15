@@ -1,0 +1,32 @@
+{% extends "Daystarapp/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block title %}
+  HOME
+{% endblock %}
+
+
+{% block content %}
+<br>
+<div class="container" style="min-height: 500px;">
+  <div style="overflow-x: auto">
+    <table style="width: 100%;">
+        <tr>
+            <th>BABY ASSIGNED</th>
+            <th>SITTER NAME</th>
+            <th>PAY</th>
+        </tr>
+        {% for sits in assign %}
+        <tr>
+            <td>{{sits.baby_being_assigned_to}}</td>
+            <td>{{sits.sitter_name}}</td>
+            <td>UGX {{sits.daypay}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

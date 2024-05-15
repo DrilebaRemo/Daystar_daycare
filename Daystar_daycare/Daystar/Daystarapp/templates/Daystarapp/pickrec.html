@@ -1,0 +1,33 @@
+{% extends 'Daystarapp/base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% load static %}
+
+{% block title%}HOME{% endblock %}
+
+{% block content %}
+<br>
+<div class="container" style="min-height: 400px;">
+  <div style="overflow-x: auto">
+    <table style="width: 100%;">
+        <tr>
+          <th>BABY</th>
+          <th>PICKED BY</th>
+          <th>TIME PICKED</th>
+          <th>COMMENT</th>
+        </tr>
+        {% for bess in babiespick %}
+        <tr>
+          <td>{{bess.baby_being_picked}}</td>
+          <td>{{bess.dropper}}</td>
+          <td>{{bess.timeout}}</td>
+          <td>{{bess.comment}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

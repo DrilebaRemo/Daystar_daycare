@@ -1,14 +1,12 @@
 {% load static %}
 {% load crispy_forms_tags %}
-{% load bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DAYSTAR DAY CARE</title>
+  
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
@@ -23,7 +21,30 @@
     <i class="fa fa-bars menu-toggle"></i>
     <ul class="navli">
       <li><a href="/home">HOME</a></li>
-      <li><a href="/inventory">INVENTORY</a></li>
+      <li>
+        <a href="#">
+          DOLL'S STALL
+          <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul>
+          <li><a href="/dollreg">DOLLS REGISTRATION</a></li>
+          <li><a href="/sales">SALES FORM</a></li>
+          <li><a href="/salerecord">SALES RECORD</a></li>
+          <li><a href="/dolloverall">DOLLS</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          PROCUREMENT CORNER
+          <i class="fa fa-chevron-down"></i>
+        </a>
+        <ul>
+          <li><a href="/procure">PROCUREMENT REGISTRATION</a></li>
+          <li><a href="/procuregive">PROCUREMENT ASSIGN</a></li>
+          <li><a href="/procurerec">PROCUREMENT RECORDS</a></li>
+          <li><a href="/prooverall">PROCUREMENT ITEMS</a></li>
+        </ul>
+      </li>
       <li><a href="/about">ABOUT</a></li>
       <li>
         <a href="#">
@@ -33,8 +54,8 @@
         <ul>
           <li><a href="/babiesreg">REGISRATION</a></li>
           <li><a href="/babystatus">STATUS</a></li>
-          <li><a href="/dropbaby">DROPPING INFO</a></li>
           <li><a href="/babypick">PICKING INFO</a></li>
+          <li><a href="/pickrec">BABIES PICKED</a></li>
         </ul>
       </li>
       <li>
@@ -45,7 +66,8 @@
         <ul>
           <li><a href="/sittersreg">REGISRATION</a></li>
           <li><a href="/sitterstatus">STATUS</a></li>
-          <li><a href="#">PAYMENTS</a></li>
+          <li><a href="/assign">ASSIGNMENT AND PAY</a></li>
+          <li><a href="/assignrecord">ASSIGNMENT AND PAY RECORDS</a></li>
         </ul>
       </li>
       <li><a href="{% url 'logout'%}">LOGOUT</a></li>
