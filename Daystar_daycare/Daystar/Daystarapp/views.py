@@ -13,7 +13,7 @@ from django.dispatch import receiver
 # Create your views here.
 def index(request):
     return render(request, 'Daystarapp/index.html')
-#@login_required(login_url='adminlogin')
+@login_required(login_url='adminlogin')
 def homes(request):
     count_babies = Babiesreg.objects.count()
     count_sitters = Sitterreg.objects.count()
@@ -21,10 +21,10 @@ def homes(request):
 
 
     return render(request, 'Daystarapp/home.html',{'count_babies':count_babies, 'count_sitters':count_sitters, 'count_toys':count_toys})
-#@login_required(login_url='adminlogin')
+@login_required(login_url='adminlogin')
 def about(request):
     return render(request, 'Daystarapp/about.html')
-#@login_required(login_url='adminlogin')
+@login_required(login_url='adminlogin')
 def addbabies(request):
     if request.method == 'POST':
         newbabyform = AddbabyForm(request.POST)
@@ -41,7 +41,7 @@ def addbabies(request):
     else:
         newbabyform = AddbabyForm()
     return render(request, 'Daystarapp/babiesreg.html', {'newbabyform': newbabyform})
-#@login_required(login_url='adminlogin')
+@login_required(login_url='adminlogin')
 def addsitter(request):
     if request.method == 'POST':
         addsitform = AddsitterForm(request.POST)
@@ -55,6 +55,7 @@ def addsitter(request):
     else:
         addsitform = AddsitterForm()
     return render(request, 'Daystarapp/sittersreg.html', {'addsitform': addsitform})
+
 def addadmins(request):
     if request.method == 'POST':
         adminregform = AdminRegForm(request.POST)
@@ -62,13 +63,13 @@ def addadmins(request):
             adminregform.save()
             return redirect('adminlogin')
         else:
-            messages.info(request, 'you have some invalid info')
+            messages.error(request, 'you have some invalid info')
     else:
         adminregform = AdminRegForm()
     return render(request, 'Daystarapp/adminreg.html', {'adminregform': adminregform})
 
 
-def registeradmin(request):
+"""def registeradmin(request):
     if request.method == 'POST':
         adminregform = AdminRegForm(request.POST)
         if adminregform.is_valid():
@@ -77,12 +78,12 @@ def registeradmin(request):
             raw_password = adminregform.cleaned_data['password1']
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('homes')
+            return redirect('adminlogin')
         else:
             messages.info(request, 'you have some invalid info')
     else:
         adminregform = AdminRegForm()
-    return render(request, 'Daystarapp/adminreg.html', {'adminregform': adminregform})
+    return render(request, 'Daystarapp/adminreg.html', {'adminregform': adminregform})"""
 
 
 
@@ -94,8 +95,8 @@ def adminlogin(request):
            password = adminlogform.cleaned_data['password']
            user = authenticate(request, username=username, password=password)
            if user is not None:
-             login(request, user)
-             return redirect('homes')
+              login(request, user)
+              return redirect('homes')
            else:
                messages.error(request, 'user or password is incorrect')
         else:
@@ -103,15 +104,18 @@ def adminlogin(request):
     else:
         adminlogform = AdminloginForm()
     return render(request, 'Daystarapp/adminlog.html', {'adminlogform': adminlogform})
-#@login_required(login_url='adminlogin')    
+
+@login_required(login_url='adminlogin')    
 def logoutuser(request):
     logout(request)
-    return redirect('adminlogin')
-#@login_required(login_url='adminlogin')  
+    return redirect('index')
+
+@login_required(login_url='adminlogin')  
 def babyview(request):
     babies = Babiesreg.objects.all()
     return render(request, 'Daystarapp/babystatus.html', {'babies': babies})
-#@login_required(login_url='adminlogin')
+
+@login_required(login_url='adminlogin')
 def sitterview(request):
     sitters = Sitterreg.objects.all()
     return render(request, 'Daystarapp/sitterstatus.html', {'sitters': sitters})
@@ -131,7 +135,7 @@ def sitterview(request):
    #else:
        #form = PaysForm()
     #return render(request, 'Daystarapp/pay.html', {'form': form}
-#@login_required(login_url='adminlogin')
+@login_required(login_url='adminlogin')
 def pickbaby(request):
     if request.method == 'POST':
         pickbabyform = PickbabyForm(request.POST)
@@ -144,6 +148,7 @@ def pickbaby(request):
         pickbabyform = PickbabyForm()
     return render(request, 'Daystarapp/babypick.html', {'pickbabyform': pickbabyform})
 
+@login_required(login_url='adminlogin')
 def regdoll(request):
     if request.method == 'POST':
         regdollform = DollRegForm(request.POST)
@@ -156,6 +161,7 @@ def regdoll(request):
         regdollform = DollRegForm()
     return render(request, 'Daystarapp/dollreg.html', {'regdollform': regdollform})
 
+@login_required(login_url='adminlogin')
 def sales_view(request):
     if request.method == 'POST':
         sellform = SalesForm(request.POST)
@@ -168,11 +174,12 @@ def sales_view(request):
         sellform = SalesForm()
     return render(request, 'Daystarapp/sales.html', {'sellform': sellform})
 
+@login_required(login_url='adminlogin')
 def salerecord(request):
     sale = Sales.objects.all()
     return render(request, 'Daystarapp/salerecord.html', {'sale': sale})
 
-
+@login_required(login_url='adminlogin')
 def editsitterview(request, id):
     sitter = Sitterreg.objects.get(id=id)
     if request.method == 'POST':
@@ -186,13 +193,13 @@ def editsitterview(request, id):
         sitterform = AddsitterForm(instance = sitter)
         return render(request, 'Daystarapp/sittersreg.html', {'addsitform': sitterform})
     
-
+@login_required(login_url='adminlogin')
 def deletesitterview(request, id):
     siter = Sitterreg.objects.get(pk=id)
     siter.delete()
     return redirect('sitterview')
 
-
+@login_required(login_url='adminlogin')
 def editbabyview(request, id):
     babys = Babiesreg.objects.get(id=id)
     if request.method == 'POST':
@@ -206,13 +213,13 @@ def editbabyview(request, id):
         babyform = AddbabyForm(instance = babys)
         return render(request, 'Daystarapp/babiesreg.html', {'newbabyform': babyform})
     
-
+@login_required(login_url='adminlogin')
 def deletebabyview(request, id):
     baby = Babiesreg.objects.get(pk=id)
     baby.delete()
     return redirect('babyview')
 
-
+@login_required(login_url='adminlogin')
 def assignbabyview(request):
     if request.method == 'POST':
         assignform = AssignbabyForm(request.POST)
@@ -227,14 +234,15 @@ def assignbabyview(request):
             print("not valid")
     else:
         assignform = AssignbabyForm()
-    return render(request, 'Daystarapp/assign.html', {'assignform': assignform})   
-
+    return render(request, 'Daystarapp/assign.html', {'assignform': assignform}) 
+  
+@login_required(login_url='adminlogin')
 def assignrec(request):
     assign = Assignbaby.objects.all()
     return render(request, 'Daystarapp/assignrecord.html', {'assign': assign})
 
 
-
+@login_required(login_url='adminlogin')
 def procure_view(request):
     if request.method == 'POST':
         proform = ProcurementForm(request.POST)
@@ -247,6 +255,7 @@ def procure_view(request):
         proform = ProcurementForm()
     return render(request, 'Daystarapp/procure.html', {'proform': proform})
 
+@login_required(login_url='adminlogin')
 def procuregive(request):
     if request.method == 'POST':
         progiveform = ProcurementgiveForm(request.POST)
@@ -262,11 +271,10 @@ def procuregive(request):
 
 
 
-
+@login_required(login_url='adminlogin')
 def procure_record(request):
     procure = Procuregive.objects.all()
     return render(request, 'Daystarapp/procurerec.html', {'procure': procure})
-
 
 @receiver(post_save, sender=Sales)
 def update_dolls_quantity(sender, instance, created, **kwargs):
@@ -280,20 +288,22 @@ def update_procure_quantity(sender, instance, created, **kwargs):
         instance.procurement_item.amount -= instance.procurequantity
         instance.procurement_item.save()
 
-
+@login_required(login_url='adminlogin')
 def babypickview(request):
     babiespick = Timeout.objects.all()
     return render(request, 'Daystarapp/pickrec.html', {'babiespick': babiespick})
 
-
+@login_required(login_url='adminlogin')
 def prototalview(request):
     prototal = Procure.objects.all()
     return render(request, 'Daystarapp/prooverall.html', {'prototal': prototal})
 
+@login_required(login_url='adminlogin')
 def dolltotalview(request):
     dolltotal = Dollstall.objects.all()
     return render(request, 'Daystarapp/dolloverall.html', {'dolltotal': dolltotal})
 
+@login_required(login_url='adminlogin')
 def editdollview(request, id):
     dolls = Dollstall.objects.get(id=id)
     if request.method == 'POST':
@@ -307,12 +317,13 @@ def editdollview(request, id):
         dollform = DollRegForm(instance = dolls)
         return render(request, 'Daystarapp/dollreg.html', {'regdollform': dollform})
     
-
+@login_required(login_url='adminlogin')
 def deletedollview(request, id):
     doll = Dollstall.objects.get(pk=id)
     doll.delete()
     return redirect('dolltotalview')
 
+@login_required(login_url='adminlogin')
 def editproview(request, id):
     pros = Procure.objects.get(id=id)
     if request.method == 'POST':
@@ -326,12 +337,13 @@ def editproview(request, id):
         prosform = ProcurementForm(instance = pros)
         return render(request, 'Daystarapp/procure.html', {'proform': prosform})
     
-
+@login_required(login_url='adminlogin')
 def deleteproview(request, id):
     pro = Procure.objects.get(pk=id)
     pro.delete()
     return redirect('prototalview')
 
+@login_required(login_url='adminlogin')
 def deletesaleview(request, id):
     pro = Sales.objects.get(pk=id)
     pro.delete()

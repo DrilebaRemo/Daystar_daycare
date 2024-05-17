@@ -13,31 +13,25 @@
   <div style="overflow-x: auto;">
     <table style="width: 100%;">
         <tr>
-            <th>BABY NO.</th>
             <th>NAME</th>
             <th>AGE</th>
             <th>GENDER</th>
-            <th>LOCATION</th>
             <th>PARENT</th>
             <th>DROPPER</th>
             <th>TIME IN</th>
             <th>PERIOD OF STAY</th>
-            <th>PAYMENT</th>
             <th>EDIT</th>
             <th>DELETE</th>
         </tr>
         {% for kids in babies %}
         <tr>
-            <td>{{kids.babyno}}</td>
             <td>{{kids.babyname}}</td>
             <td>{{kids.babyage}}</td>
             <td>{{kids.baby_gender}}</td>
-            <td>{{kids.babyloc}}</td>
             <td>{{kids.babyparent}}</td>
             <td>{{kids.dropper}}</td>
             <td>{{kids.timein}}</td>
             <td>{{kids.period_of_stay}}</td>
-            <td>UGX {{kids.babypay}}</td>
             <td><a href="/editbabyview/{{kids.id}}"><button type="submit">EDIT</button></a></td>
             <td><a href="/deletebabyview/{{kids.id}}"><button type="submit">DELETE</button></a></td>
         </tr>

@@ -8,20 +8,11 @@
 {% block title%}HOME{% endblock %}
 
 {% block content %}
+<br>
 <div class="container" style="min-height: 400px;">
     <form method="post">
         {% csrf_token %}
         {{ dropbabyform.as_p }}
-        <!--<select name="periodstay">
-            <option value="Half_day">Half Day</option>
-            <option value="Full_day">Full Day</option>
-            <option value="Monthly">Monthly</option>
-        </select>
-        <select name="babypay">
-            <option value=15000>15000</option>
-            <option value=10000>10000</option>
-            <option value=46500>465000</option>
-        </select>-->
         <button type="submit">Submit</button>
     </form>
 </div>

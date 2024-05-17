@@ -15,12 +15,9 @@ SITTER RECORDS
   <div style="overflow-x: auto;">
     <table style="width: 100%;">
       <tr>
-            <th>SITTER NO.</th>
             <th>NAME</th>
             <th>DATE OF BIRTH</th>
             <th>GENDER</th>
-            <th>LOCATION</th>
-            <th>NIN NUMBER</th>
             <th>REFERENCE NAME</th>
             <th>RELIGION</th>
             <th>LEVEL OF EDUCATION</th>
@@ -29,12 +26,9 @@ SITTER RECORDS
       </tr>
         {% for sits in sitters %}
       <tr>
-            <td>{{sits.sitterno}}</td>
             <td>{{sits.sittername}}</td>
             <td>{{sits.sitterbirth}}</td>
             <td>{{sits.sitter_gender}}</td>
-            <td>{{sits.sitterloc}}</td>
-            <td>{{sits.sitterNIN}}</td>
             <td>{{sits.sitterreco}}</td>
             <td>{{sits.sitterreligion}}</td>
             <td>{{sits.sittereduc}}</td>
