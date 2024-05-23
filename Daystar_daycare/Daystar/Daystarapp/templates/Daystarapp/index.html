@@ -7,26 +7,21 @@
 {% block title%}HOME{% endblock %}
 
 {% block content %}
-  <div class="container" style="min-height: 400px;">
+  <div class="container" style="min-height: 400px; text-align:center;">
+      <h1 style="text-align: center;">WELCOME TO DAYSTAR DAYCARE</h1>
+    <div style="overflow-x: auto;">
       <div class="row">
-          <div class="col-md-5" style="border: 1px solid red;">
-            <div class="indimg">
-              <img src="{% static 'img/day star logo.jpg' %}" style="width: 100%; border-radius: 20px;">
+          <div class="col-md-12" >
+            <div class="indimg" style=" display:grid; max-width: 100%; grid-template-columns: repeat(3, 1fr); gap: 5px;">
+              <img src="{% static 'img/blackcut.jpg' %}" style="float: left; height: 350px;">
+              <img src="{% static 'img/day star logo.jpg' %}" style=" display: block; margin-left: auto; margin-right: auto;">
+              <img src="{% static 'img/baby hands.jpg' %}" style="float: right; height: 350px;">
             </div>
           </div>
-          <div class="col-md-5" style="border: 1px solid red;">
-            <div class="indexcont" style="float: right;">
-              <h1>WELCOME TO DAYSTAR DAYCARE</h1>
-              <p>
-                Hello dear Administrator, welcome to the Daystar daycare management web app. It is designed to ease data collection and analysis so its easy to loacte as well as input data.<br>
-                You can find what you require here, from registration of staff and babies to inventory. All to help ease your monitoring of data.
-                Please enjoy and thanks for choosing Daystar Daycare
-              </p>
-              <div class="indexbutton">
-                <a href="adminlog/"><button type="submit">Login</button></a> | <a href="adminreg/"><button type="submit">Register</button></a>
-              </div>
-            </div>
-          </div>  
       </div>
+      <div class="indexbutton" style="margin: 0 auto; text-align: center; display: block;">
+        <a href="adminlog/"><button type="submit">Login</button></a> | <a href="adminreg/"><button type="submit">Register</button></a>
+      </div>
+    </div>
   </div>
 {% endblock %}

@@ -12,11 +12,11 @@
 <div class="container" style="min-height: 500px;">
     <div class='row'>
         <div class="col-md-12">
-            <h1>WELCOME DEAR ADMINISTRATOR</h1>
+            <h1 style="text-align: center;">GET STARTED</h1>
             <p> This system is meant to ease the process of data collection and analysis.</p>
         </div>
     </div>
-    <div class="carousel-container" style="overflow: visible;">
+   <!-- <div class="carousel-container" style="overflow: visible;">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -44,30 +44,57 @@
             </button>
         </div>
     </div>
-    <br>
+    <br>-->
     <div class="row">
         <div class="col-md-4">
-           <h3>REGISTERED BABIES</h3> 
+           <h4>REGISTERED BABIES</h4> 
            <p>{{ count_babies }}</p>
-           <div style="border: 3px solid white;">
+           <div>
              <img src="{% static 'img/babygroup.jpg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;">
              <a href="/babiesreg"><button type="submit" class="btn btn-primary">Register baby</button></a>
            </div>
         </div>
         <div class="col-md-4">
-           <h3>REGISTERED SITTERS</h3> 
+           <h4>REGISTERED SITTERS</h4> 
            <p>{{ count_sitters }}</p>
-           <div style="border: 3px solid white;">
+           <div>
             <img src="{% static 'img/babysit1.jpg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;">
             <a href="/sittersreg"><button type="submit" class="btn btn-primary">Register sitter</button></a>
            </div>
         </div>
         <div class="col-md-4">
-            <h3>SALES MADE TO BABIES</h3> 
+            <h4>SALES MADE TO BABIES</h4> 
             <p>{{ count_toys }}</p>
-            <div style="border: 3px solid white;">
+            <div>
                 <img src="{% static 'img/shutterstock.jpg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;">
                 <a href="/sales"><button type="submit" class="btn btn-primary">Make sale</button></a>
+            </div>
+         </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+           <h4>SITTERS ASSIGNED</h4> 
+           <p>{{ count_babies }}</p>
+           <div>
+             <img src="{% static 'img/assign.jpg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;">
+             <a href="/assign"><button type="submit" class="btn btn-primary">Assign sitter</button></a>
+           </div>
+        </div>
+        <div class="col-md-4">
+           <h4>PROCUREMENT</h4> 
+           <p>{{ count_sitters }}</p>
+           <div>
+            <img src="{% static 'img/food.jpg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;">
+            <a href="/procuregive"><button type="submit" class="btn btn-primary">Give procurement</button></a>
+           </div>
+        </div>
+        <div class="col-md-4">
+            <h4>BABIES PICKED</h4> 
+            <p>{{ count_pickbaby }}</p>
+            <div>
+                <img src="{% static 'img/leave.jpg' %}" style="height: auto; max-width: 100%; display: block; margin: 0 auto;">
+                <a href="/babypick"><button type="submit" class="btn btn-primary">Send off</button></a>
             </div>
          </div>
     </div>

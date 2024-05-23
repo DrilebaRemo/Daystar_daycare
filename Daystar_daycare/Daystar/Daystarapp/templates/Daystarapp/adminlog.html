@@ -6,14 +6,18 @@
 {% bootstrap_javascript %}
 {% block content %}
 <br>
-<div class="container" style="min-height: 500px;">
+<div class="container" style="min-height: 300px;">
     <div class="row">
        <div class="col-md-4" style="width: 100%;">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
             <form method="post">
               {% csrf_token %}
-              {% for message in messages %}
-              <p id="messages">{{ message }}</p>
-              {% endfor %}
               {{ adminlogform.as_p }}
               <button type="submit" class="btn btn-primary">Login</button>
             </form>

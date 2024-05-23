@@ -24,11 +24,12 @@
         <tr>
             <td>{{sits.pitems}}</td>
             <td>{{sits.amount}}</td>
-            <td><a href="/editproview/{{sits.id}}"><button type="submit">EDIT</button></a></td>
-            <td><a href="/deleteproview/{{sits.id}}"><button type="submit">DELETE</button></a></td>
+            <td><a href="/editproview/{{sits.id}}"><button type="submit" class="edbutton">EDIT</button></a></td>
+            <td><a href="/deleteproview/{{sits.id}}"><button type="submit"  style="background-color: rgb(214, 6, 48);">DELETE</button></a></td>
         </tr>
         {% endfor %}
     </table>
+    <br>
   </div>
 </div>
 {% endblock %}

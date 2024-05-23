@@ -85,11 +85,15 @@ class Dollstall(models.Model):
 
 
 class Sales(models.Model):
-    item = models.ForeignKey(Dollstall, on_delete=models.CASCADE)
+    doll_item = models.ForeignKey(Dollstall, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=True, blank=True)
-    sell_to = models.ForeignKey(Babiesreg, on_delete=models.CASCADE)
-    price = models.IntegerField(null=True, blank=True)
+    sell_to_baby = models.ForeignKey(Babiesreg, on_delete=models.CASCADE)
+    total_price = models.IntegerField(null=True, blank=True)
     datesale = models.DateTimeField(null=True, blank=True)
+    
+    #def save(self, *args, **kwargs):
+      #  self.total_price = self.doll_item.unitprice * self.quantity
+       # super().save(*args, **kwargs)
     
 
 
@@ -102,7 +106,7 @@ class Assignbaby(models.Model):
 
 class Procuregive(models.Model):
     procurement_item = models.ForeignKey(Procure, on_delete=models.CASCADE)
-    procurequantity = models.IntegerField(null=True, blank=True)
+    amount = models.IntegerField(null=True, blank=True)
     baby_being_given_to = models.ForeignKey(Babiesreg, on_delete=models.CASCADE)
 
 

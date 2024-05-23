@@ -1,13 +1,13 @@
 from django.urls import path
 from Daystarapp import views
 from Daystarapp import views as auth_views
-from django.contrib.auth import logout
+#from django.contrib.auth import logout
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('adminreg/', views.addadmins, name='addadmins'),
     path('adminlog/', views.adminlogin, name='adminlogin'),
-    path('logout/', auth_views.logoutuser, name='logout'),
+    path('logoutuser/', auth_views.logoutuser, name='logout'),
     path('babiesreg/', views.addbabies, name='addbabies'),
     path('sittersreg/', views.addsitter, name='addsitter'),
     path('home/', views.homes, name='homes'),
@@ -15,7 +15,7 @@ urlpatterns = [
     path('babystatus/', views.babyview, name='babyview'),
     path('sitterstatus/', views.sitterview, name='sitterview'),
     path('assign/', views.assignbabyview, name='assignbabyview'),
-    path('assignrecord/', views.assignrec, name='assigrec'),
+    path('assignrecord/', views.assignrec, name='assignrec'),
     path('babypick/', views.pickbaby, name='pickbaby'),
     path('pickrec/', views.babypickview, name='babypickview'),
     path('editsitterview/<int:id>/', views.editsitterview, name='editsitterview'),
